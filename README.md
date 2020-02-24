@@ -47,6 +47,7 @@ data.csv ~ 30 Mb, texts.json ~ 160 Mb.
 
 1. Habr: https://habr.com/ru/
 2. Crawled dataset (data.csv/texts.json and raw .html's): https://drive.google.com/drive/folders/1hGO-JmV8wF9XJulWJT7B-1t9FPGMrDWE?usp=sharing
+3. The dataset in kaggle: https://www.kaggle.com/awant08/habrahabr-articles
 
 P.S.: To all pythonists I recommend to try **pipreqs** to build requirements.txt. It is simple to use and doesn't add anything superfluous.
 
