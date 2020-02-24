@@ -21,12 +21,6 @@ class HabrScraper(object):
         return response.text
 
     @staticmethod
-    def dump_page_tmp(url, file='dump.html'):
-        response = requests.get(url)
-        with open(file, mode='w') as f:
-            f.write(response.text)
-
-    @staticmethod
     def extract_pages_links(html):
         soup = BeautifulSoup(html, 'html.parser')
         return [{'link': link['href'], 'title': link.text} for link in soup.find_all('a', {'class': 'post__title_link'})]
@@ -69,8 +63,14 @@ class HabrScraper(object):
                 f.write(html)
 
     @staticmethod
-    def dump_page_if_article(url, soup, html):
+    def dump_page_if_article(soup, html):
         if HabrScraper.is_article(soup):
+            json_script = soup.find('script', {'type': 'application/ld+json'})
+            if not json_script:
+                return
+            json_script = json.loads(json_script.text)
+            url = json_script['mainEntityOfPage'].get('@id')
+
             date = HabrScraper.get_date_str(soup)
             if date:
                 idx = str(HabrScraper.get_article_id(url))
@@ -82,7 +82,7 @@ class HabrScraper(object):
     def extract_links(url):
         html = HabrScraper.download_page(url)
         soup = BeautifulSoup(html, 'html.parser')
-        HabrScraper.dump_page_if_article(url, soup, html)
+        HabrScraper.dump_page_if_article(soup, html)
         extracted_links = [link.get('href') for link in soup.find_all('a')]
         extracted_links = [x for x in extracted_links if x and ('#' not in x)]
         return list(set([link for link in extracted_links if link.startswith('https://habr.com/ru/') and ('users' not in link)]))
@@ -116,7 +116,7 @@ class HabrScraper(object):
             pickle.dump(cache, f)
 
     @staticmethod
-    def dump_pages():
+    def find_all_pages_links():
         links, known_links = HabrScraper.init_caches()
         iterations = 0
         while len(links) > 0:
@@ -131,8 +131,7 @@ class HabrScraper(object):
 
 
 def main():
-    HabrScraper.parse_paging()
-    HabrScraper.dump_pages()
+    HabrScraper.find_all_pages_links()
 
 
 if __name__ == '__main__':

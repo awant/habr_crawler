@@ -11,6 +11,7 @@ from collections import Counter, defaultdict
 from pprint import pprint
 import os
 from tqdm import tqdm
+from shutil import copyfile
 
 
 def get_meta_info(soup):
@@ -216,7 +217,7 @@ def print_stats(filepath='data/pages'):
 
 
 def test():
-    feat, text = parse_html('data/pages/2008-07-31/63806050')
+    feat, text = parse_html('data/pages/2020-02-18/2384944')
     pprint(feat)
 
 
