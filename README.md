@@ -49,3 +49,70 @@ data.csv ~ 30 Mb, texts.json ~ 160 Mb.
 2. Crawled dataset (data.csv/texts.json and raw .html's): https://drive.google.com/drive/folders/1hGO-JmV8wF9XJulWJT7B-1t9FPGMrDWE?usp=sharing
 
 P.S.: To all pythonists I recommend to try **pipreqs** to build requirements.txt. It is simple to use and doesn't add anything superfluous.
+
+Example of a row from data.csv:
+
+```
+{'alphabetic_tokens_count': 1019,
+ 'article_categories': 'c_ruvds, h_zadachki, h_sql, h_career, f_develop, '
+                       'f_management',
+ 'author_name': 'ru_vds',
+ 'author_type': 'Person',
+ 'bookmarks': 354,
+ 'comments': 74,
+ 'description': 'Хотя составление SQL-запросов &mdash; это не самое интересное '
+                'в работе дата-сайентистов, хорошее понимание SQL чрезвычайно '
+                'важно для того, кто хочет преуспеть в любом...',
+ 'first_5_sentences': 'Хотя составление SQL-запросов — это не самое интересное '
+                      'в работе дата-сайентистов, хорошее понимание SQL '
+                      'чрезвычайно важно для того, кто хочет преуспеть в любом '
+                      'занятии, связанном с обработкой данных. Дело тут в том, '
+                      'что SQL — это не только SELECT, FROM и WHERE. Чем '
+                      'больше SQL-конструкций знает специалист — тем легче ему '
+                      'будет создавать запросы на получение из баз данных '
+                      'всего, что ему может понадобиться. Автор статьи, '
+                      'перевод которой мы сегодня публикуем, говорит, что она '
+                      'направлена на решение двух задач: Изучение механизмов, '
+                      'которые выходят за пределы базового знания SQL. '
+                      'Рассмотрение нескольких практических задач по работе с '
+                      'SQL.',
+ 'h3_count': 7,
+ 'href_count': 3,
+ 'i_count': 0,
+ 'image': 'https://habrastorage.org/webt/0z/vs/bn/0zvsbnwvpvqk_l_-semjqdqw5fu.jpeg',
+ 'img_count': 2,
+ 'last_5_sentences': 'P.S. В нашем маркетплейсе есть Docker-образ с SQL Server '
+                     'Express, который устанавливается в один клик. Вы можете '
+                     'проверить работу контейнеров на VPS. Всем новым клиентам '
+                     'бесплатно предоставляются 3 дня для тестирования. '
+                     'Уважаемые читатели! Что вы можете посоветовать тем, кто '
+                     'хочет освоить искусство создания SQL-запросов?',
+ 'lines_count': 159,
+ 'link': 'https://habr.com/ru/company/ruvds/blog/487878/',
+ 'max_sentence_len': 578,
+ 'max_token_len': 21,
+ 'mean_sentence_len': 173.12962962962962,
+ 'mean_token_len': 3.9785564853556483,
+ 'median_sentence_len': 128.0,
+ 'median_token_len': 2.0,
+ 'min_sentence_len': 19,
+ 'modified_date': '2020-02-18',
+ 'modified_time': '13:20',
+ 'negative_votes': 17,
+ 'positive_votes': 45,
+ 'published_date': '2020-02-18',
+ 'published_time': '13:20',
+ 'rating': 28,
+ 'sentences_count': 54,
+ 'spoiler_count': 0,
+ 'tags': 'SQL, разработка',
+ 'ten_most_common_words': 'id, select, from, таблице, salary, where, employee, '
+                          'max, sql, email',
+ 'text_len': 9442,
+ 'title': '5 вопросов по SQL, которые часто задают дата-сайентистам на '
+          'собеседованиях',
+ 'tokens_count': 1912,
+ 'views': 36700,
+ 'words_count': 774,
+ 'words_mean': 5.810077519379845}
+```
